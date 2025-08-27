@@ -2,7 +2,7 @@ package com.project.code.Repo;
 
 
 
-public interface OrderItemRepository {
+public interface OrderItemRepository extends JpaRepository<OrderItem, Long>{
 // 1. Add the repository interface:
 //    - Extend JpaRepository<OrderItem, Long> to inherit basic CRUD functionality.
 //    - This allows the repository to perform operations like save, delete, update, and find without having to implement these methods manually.
