@@ -1,6 +1,8 @@
 package com.project.code.Model;
 
-import java.security.Identity;
+
+import com.fasterxml.jackson.annotation.*;
+import jakarta.persistence.*;
 
 @Entity
 public class OrderItem {

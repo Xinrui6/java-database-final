@@ -1,5 +1,8 @@
 package com.project.code.Model;
 
+import com.fasterxml.jackson.annotation.*;
+import jakarta.persistence.*;
+
 @Entity
 public class Inventory {
    // 1. Add 'id' field:

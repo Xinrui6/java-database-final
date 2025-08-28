@@ -1,11 +1,31 @@
 package com.project.code.Controller;
 
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.project.code.Model.CombinedRequest;
+import com.project.code.Repo.InventoryRepository;
+import com.project.code.Repo.ProductRepository;
+import com.project.code.Service.ServiceClass;
+
+@RestController
+@RequestMapping("/inventory")
 public class InventoryController {
 // 1. Set Up the Controller Class:
 //    - Annotate the class with `@RestController` to indicate that this is a REST controller, which handles HTTP requests and responses.
 //    - Use `@RequestMapping("/inventory")` to set the base URL path for all methods in this controller. All endpoints related to inventory will be prefixed with `/inventory`.
+    @Autowired
+    private ProductRepository productRepository;
 
+    @Autowired
+    private InventoryRepository inventoryRepository;
 
+    @Autowired
+    private ServiceClass serviceClass;
 // 2. Autowired Dependencies:
 //    - Autowire necessary repositories and services:
 //      - `ProductRepository` will be used to interact with product data (i.e., finding, updating products).
@@ -18,7 +38,13 @@ public class InventoryController {
 //    - It takes a `CombinedRequest` (containing `Product` and `Inventory`) in the request body.
 //    - The product ID is validated, and if valid, the inventory is updated in the database.
 //    - If the inventory exists, update it and return a success message. If not, return a message indicating no data available.
+    @PutMapping("/inventory")
+    public Map<String, String> updateInventory(CombinedRequest combinedRequest) {
+        boolean validProductId = serviceClass.ValidateProductId(combinedRequest.getProduct().getId());
+        boolean validInventory = serviceClass.validateInventory(combinedRequest.getInventory());
 
+        
+    }
 
 // 4. Define the `saveInventory` Method:
 //    - This method handles HTTP POST requests to save a new inventory entry.

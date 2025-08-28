@@ -1,6 +1,10 @@
 package com.project.code.Model;
 
 import java.lang.annotation.Inherited;
+import org.springframework.data.mongodb.core.mapping.Document;
+import com.fasterxml.jackson.annotation.*;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Document(collection = "reviews")
 public class Review {
@@ -97,7 +101,7 @@ public class Review {
     }
 
     public void setComment(String comment) {
-        this.comment = comment;his
+        this.comment = comment;
     }
 
 }

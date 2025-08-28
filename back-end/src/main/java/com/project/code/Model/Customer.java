@@ -1,5 +1,12 @@
 package com.project.code.Model;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.*;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+
+
 @Entity
 public class Customer {
 
@@ -32,7 +39,7 @@ public class Customer {
 //    - This field cannot be empty, use the @NotNull annotation to enforce this rule.
 
     // Example: @NotNull(message = "Phone cannot be null")
-    @NotNull(message = "Phone cannot be null");
+    @NotNull(message = "Phone cannot be null")
     private String phone;
 
 // 5. Add one-to-many relationship with orders:
@@ -45,7 +52,7 @@ public class Customer {
     // Example: @JsonManagedReference
     @OneToMany(mappedBy = "costumer", fetch = FetchType.EAGER)
     @JsonManagedReference
-    private Order orders;
+    private List<OrderDetails> orders;
 
 // 6. Getters and Setters:
 //    - For each field ('id', 'name', 'email', 'phone'), add getter and setter methods.
@@ -82,6 +89,11 @@ public class Customer {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public Customer orElseThrow(Object object) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'orElseThrow'");
     }
 
 

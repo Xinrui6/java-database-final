@@ -1,5 +1,14 @@
 package com.project.code.Repo;
 
+import java.util.List;
+
+import org.springframework.data.jpa.repository.*;
+import org.springframework.stereotype.Repository;
+
+import com.project.code.Model.Inventory;
+
+import jakarta.transaction.Transactional;
+
 @Repository
 public interface InventoryRepository extends JpaRepository<Inventory, Long>{
 // 1. Add the repository interface:

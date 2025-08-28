@@ -2,6 +2,11 @@ package com.project.code.Model;
 
 import java.lang.annotation.Inherited;
 import java.time.LocalDateTime;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.*;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Entity
 public class OrderDetails {
@@ -38,7 +43,7 @@ public class OrderDetails {
 // 4. Add 'totalPrice' field:
 //    - Type: private Double
 //    - This field represents the total price of the order.
-    private doubl totalPrice;
+    private double totalPrice;
 
 // 5. Add 'date' field:
 //    - Type: private LocalDateTime
@@ -61,7 +66,7 @@ public class OrderDetails {
     public OrderDetails() {}
 
     public OrderDetails(Customer customer, Store store, double totalPrice, LocalDateTime date) {
-        this.costumer = costumer;
+        this.customer = customer;
         this.store = store;
         this.totalPrice = totalPrice;
         this.date = date;
