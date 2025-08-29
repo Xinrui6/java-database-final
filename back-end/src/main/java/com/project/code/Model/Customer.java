@@ -50,7 +50,7 @@ public class Customer {
 
     // Example: @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
     // Example: @JsonManagedReference
-    @OneToMany(mappedBy = "costumer", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
     @JsonManagedReference
     private List<OrderDetails> orders;
 
